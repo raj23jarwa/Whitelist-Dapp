@@ -20,7 +20,11 @@ contract Whitelist {
             numWhiteListedAddresses < maxWhiteListedAddresses,
             "Max limit has reached"
         );
-        numWhiteListedAddresses += 1;
         whiteListedAddresses[msg.sender] = true;
+        numWhiteListedAddresses += 1;
+        
+    }
+       function whitelistedAddresses(address _address) public view returns (bool) {
+        return whiteListedAddresses[_address];
     }
 }
